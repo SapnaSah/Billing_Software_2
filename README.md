@@ -1,5 +1,4 @@
 # Billing Software
-
 A simple billing software application built with **Python** and **Tkinter** for a graphical user interface. It allows users to manage customer information, add products to a cart, generate bills, and save/print them.
 
 ## Screenshots
@@ -7,15 +6,21 @@ A simple billing software application built with **Python** and **Tkinter** for 
 ### Main Page
 ![Screenshot 2025-05-25 162703](https://github.com/user-attachments/assets/15c87e2e-af8a-43c3-a2cd-bdd249cef1d5)
 
+### Product Entry
+![Screenshot 2025-05-25 212855](https://github.com/user-attachments/assets/15de9b39-e80e-4911-9a7b-a7925cf077ee)
+
+
 ### Sample Input
-![Screenshot 2025-05-25 163026](https://github.com/user-attachments/assets/13b71ff9-3cd9-4037-a488-3322cbd06f21)
+![Screenshot 2025-05-25 213321](https://github.com/user-attachments/assets/0f780678-5ace-464b-a08c-101a4c47f88d)
+
+### More Product Entry
+![Screenshot 2025-05-25 213008](https://github.com/user-attachments/assets/b8b3cab5-c100-491f-8503-c512bc493113)
 
 ### Sample Bill
-![Screenshot 2025-05-25 163055](https://github.com/user-attachments/assets/085392cd-8647-40c4-a308-47dc7341ee6e)
+![Screenshot 2025-05-25 213029](https://github.com/user-attachments/assets/e5ed6736-0fe7-415a-9fe3-1493e2f4e99c)
 
 ### Saved Bill_at Notepad
-![Screenshot 2025-05-25 180144](https://github.com/user-attachments/assets/d1383c46-3d49-4bca-a770-ec68b43e7061)
-
+![Screenshot 2025-05-25 214442](https://github.com/user-attachments/assets/439ccb4a-0c8b-46d2-90c9-a193bbc421f1)
 
 ## Features
 
