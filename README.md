@@ -2,7 +2,20 @@
 
 A simple billing software application built with **Python** and **Tkinter** for a graphical user interface. It allows users to manage customer information, add products to a cart, generate bills, and save/print them.
 
----
+## Screenshots
+
+### Main Page
+![Screenshot 2025-05-25 162703](https://github.com/user-attachments/assets/15c87e2e-af8a-43c3-a2cd-bdd249cef1d5)
+
+### Sample Input
+![Screenshot 2025-05-25 163026](https://github.com/user-attachments/assets/13b71ff9-3cd9-4037-a488-3322cbd06f21)
+
+### Sample Bill
+![Screenshot 2025-05-25 163055](https://github.com/user-attachments/assets/085392cd-8647-40c4-a308-47dc7341ee6e)
+
+### Saved Bill_at Notepad
+![Screenshot 2025-05-25 180144](https://github.com/user-attachments/assets/d1383c46-3d49-4bca-a770-ec68b43e7061)
+
 
 ## Features
 
