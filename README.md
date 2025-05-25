@@ -41,18 +41,15 @@ A simple billing software application built with **Python** and **Tkinter** for 
 
 ### Installation
 
-1. **Clone the repository**:
-    ```bash
-    git clone <repository_url>
-    cd Billing_Software_2
-    ```
+1. **Clone or download the repository** and navigate to the project folder.
 2. **Create an `image` directory** in the project folder.
 3. **Add images** to the `image` folder:
-    - `good.jpg`
-    - `gro1.jpg`
-    - `b1.jpg`
-    - `download.jpeg`
-    - `mall.jpg`
+    - `a1.jpg`
+    - `a2.jpg`
+    - `a3.jpeg`
+    - `a4.jpg`
+    - `a5.jpeg`
+    - `b1.jpg` (used in test.py)
     *(Use placeholder images if you don’t have these, but keep the names the same.)*
 4. The `bills` directory will be created automatically when you save your first bill.
 
@@ -60,10 +57,17 @@ A simple billing software application built with **Python** and **Tkinter** for 
 
 ## Running the Application
 
+To run the main billing software:
+
 ```bash
-python your_script_name.py
+python main.py
 ```
-*Replace `your_script_name.py` with the actual Python script’s name, e.g., `bill_app.py`.*
+
+To test image loading (for development):
+
+```bash
+python test.py
+```
 
 ---
 
@@ -82,13 +86,16 @@ python your_script_name.py
 
 ```
 .
-├── your_script_name.py      # Main script
-├── image/                   # Image directory
-│   ├── good.jpg
-│   ├── gro1.jpg
-│   ├── b1.jpg
-│   ├── download.jpeg
-│   └── mall.jpg
+├── main.py                  # Main billing software script
+├── test.py                  # Test script for image loading
+├── README.md
+├── image/                   # Image directory (create manually)
+│   ├── a1.jpg
+│   ├── a2.jpg
+│   ├── a3.jpeg
+│   ├── a4.jpg
+│   ├── a5.jpeg
+│   └── b1.jpg
 └── bills/                   # Bills directory (auto-created)
     └── BILLYYYYMMDDHHMMSS.txt
 ```
