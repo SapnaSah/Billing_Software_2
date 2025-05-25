@@ -4,51 +4,48 @@ from PIL import Image, ImageTk
 import datetime
 import os
 import tempfile
+import tkinter.messagebox
+import tkinter.simpledialog
 
 
 class Bill_App:
     def __init__(self, root):
         self.root = root
-        self.root.geometry("1366x768+0+0")  # Set the resolution
-        self.root.title("Billing Software")
-
-        # --- Top Images ---
-        # Instead of hardcoding image paths, which might cause errors,
-        # it's better to either ensure the images are in the same directory
-        # or use a more robust way to handle file paths.  For this example,
-        # I'll assume the images are in a subdirectory named "images".
-        # If the images are not in a subdirectory, remove the "images/" part.
+        # Set the window to full screen
+        self.root.attributes('-fullscreen', True)
+        self.root.title("Billing Software")        # --- Top Images ---
+        # Load the three top banner images from the image directory
         try:
-            img = Image.open("image/good.jpg")
-            img = img.resize((400, 100), Image.Resampling.LANCZOS)
-            self.photoimg = ImageTk.PhotoImage(img)
-        except FileNotFoundError:
-            print("Error: b1.jpg not found")
-            self.photoimg = None  # Set to None to avoid errors later
+            img_left = Image.open("image/a1.jpg")
+            img_left = img_left.resize((410, 100), Image.Resampling.LANCZOS)
+            self.photoimg_left = ImageTk.PhotoImage(img_left)
+        except Exception as e:
+            print(f"Error loading a1.jpg: {e}")
+            self.photoimg_left = None
 
         try:
-            img_1 = Image.open("image/gro1.jpg")
-            img_1 = img_1.resize((400, 100), Image.Resampling.LANCZOS)
-            self.photoimg_1 = ImageTk.PhotoImage(img_1)
-        except FileNotFoundError:
-            print("Error: gro1.jpg not found")
-            self.photoimg_1 = None
+            img_center = Image.open("image/a3.jpeg")
+            img_center = img_center.resize((410, 100), Image.Resampling.LANCZOS)
+            self.photoimg_center = ImageTk.PhotoImage(img_center)
+        except Exception as e:
+            print(f"Error loading a3.jpeg: {e}")
+            self.photoimg_center = None
 
         try:
-            img_2 = Image.open("image/b1.jpg")
-            img_2 = img_2.resize((400, 100), Image.Resampling.LANCZOS)
-            self.photoimg_2 = ImageTk.PhotoImage(img_2)
-        except FileNotFoundError:
-            print("Error: good.jpg not found.")
-            self.photoimg_2 = None
+            img_right = Image.open("image/a4.jpg")
+            img_right = img_right.resize((410, 100), Image.Resampling.LANCZOS)
+            self.photoimg_right = ImageTk.PhotoImage(img_right)
+        except Exception as e:
+            print(f"Error loading a4.jpg: {e}")
+            self.photoimg_right = None
 
-        # Create labels for images, check if images were loaded.
-        lbl_img = tk.Label(self.root, image=self.photoimg)
-        lbl_img.place(x=0, y=0, width=400, height=100)
-        lbl_img_1 = tk.Label(self.root, image=self.photoimg_1)
-        lbl_img_1.place(x=400, y=0, width=400, height=100)
-        lbl_img_2 = tk.Label(self.root, image=self.photoimg_2)
-        lbl_img_2.place(x=800, y=0, width=400, height=100)
+        # Create labels for images and place them in a row at the top
+        self.lbl_img_left = tk.Label(self.root, image=self.photoimg_left)
+        self.lbl_img_left.place(x=30, y=0, width=410, height=100)
+        self.lbl_img_center = tk.Label(self.root, image=self.photoimg_center)
+        self.lbl_img_center.place(x=460, y=0, width=410, height=100)
+        self.lbl_img_right = tk.Label(self.root, image=self.photoimg_right)
+        self.lbl_img_right.place(x=920, y=0, width=400, height=100)
 
         # --- Title Label ---
         lbl_title = tk.Label(
@@ -151,42 +148,42 @@ class Bill_App:
         )  # Shorter width
         self.ComboPrice.grid(row=0, column=3, sticky=tk.W, padx=5, pady=2)
 
-        # Qty
+        # --- Product Quantity ---
         self.lblQty = tk.Label(
             Product_Frame, font=("arial", 12, "bold"), bg="white", text="Qty", bd=4
         )
         self.lblQty.grid(row=1, column=2, sticky=tk.W, padx=5, pady=2)
 
-        self.ComboQty = ttk.Entry(Product_Frame, font=("arial", 10, "bold"), width=22)  # Shorter width
+        self.ComboQty = ttk.Entry(Product_Frame, font=("arial", 10, "bold"), width=22)
         self.ComboQty.grid(row=1, column=3, sticky=tk.W, padx=5, pady=2)
 
         # --- Middle Frame ---
         MiddleFrame = tk.Frame(Main_Frame, bd=10)
         MiddleFrame.place(x=10, y=170, width=1000, height=300)  # Adjusted y
 
-        # image4
+        # Left middle image
         try:
-            img_2 = Image.open("image/download.jpeg")
-            img_2 = img_2.resize((400, 280), Image.Resampling.LANCZOS)  # Adjusted size
-            self.photoimg_2 = ImageTk.PhotoImage(img_2)
-        except FileNotFoundError:
-            print("Error: download.jpeg not found.")
-            self.photoimg_2 = None
+            img_middle = Image.open("image/a5.jpeg")
+            img_middle = img_middle.resize((400, 280), Image.Resampling.LANCZOS)  # Adjusted size
+            self.photoimg_middle = ImageTk.PhotoImage(img_middle)
+        except Exception as e:
+            print(f"Error loading a5.jpeg: {e}")
+            self.photoimg_middle = None
 
-        lbl_img_2 = tk.Label(MiddleFrame, image=self.photoimg_2)
-        lbl_img_2.place(x=0, y=0, width=400, height=280)
+        lbl_img_middle = tk.Label(MiddleFrame, image=self.photoimg_middle)
+        lbl_img_middle.place(x=0, y=0, width=400, height=280)
 
-        # image5
+        # Right middle image
         try:
-            img_3 = Image.open("image/mall.jpg")
-            img_3 = img_3.resize((400, 280), Image.Resampling.LANCZOS)  # Adjusted Size
-            self.photoimg_3 = ImageTk.PhotoImage(img_3)
-        except FileNotFoundError:
-            print("Error: mall.jpg not found.")
-            self.photoimg_3 = None
+            img_middle_right = Image.open("image/a2.jpg")
+            img_middle_right = img_middle_right.resize((400, 280), Image.Resampling.LANCZOS)  # Adjusted Size
+            self.photoimg_middle_right = ImageTk.PhotoImage(img_middle_right)
+        except Exception as e:
+            print(f"Error loading a2.jpg: {e}")
+            self.photoimg_middle_right = None
 
-        lbl_img_3 = tk.Label(MiddleFrame, image=self.photoimg_3)
-        lbl_img_3.place(x=410, y=0, width=400, height=280)  # Adjusted X
+        lbl_img_middle_right = tk.Label(MiddleFrame, image=self.photoimg_middle_right)
+        lbl_img_middle_right.place(x=410, y=0, width=400, height=280)  # Adjusted X
 
         # --- Right Frame (Bill Area) ---
         RightLabelFrame = tk.LabelFrame(
@@ -474,7 +471,8 @@ class Bill_App:
             self.textarea.insert(
                 tk.END, f"{item['product']:20}{item['qty']:>10}{item['price']:>10.2f}{item['total']:>10.2f}\n"
             )
-            subtotal += item["total"]  # Corrected lineself.EntySubTotal.delete(0, tk.END)
+            subtotal += item["total"]
+        self.EntySubTotal.delete(0, tk.END)
         self.EntySubTotal.insert(0, f"{subtotal:.2f}")
         tax = subtotal * 0.05
         self.txt_tax.delete(0, tk.END)
